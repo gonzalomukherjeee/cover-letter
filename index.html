@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CV Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- index.css -->
+
+
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Googe Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+</head>
+
+<style>
+    /* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+
+    body {
+        background: white;
+        /* overflow-x: hidden; */
+        font-family: 'Nunito Sans', sans-serif;
+
+    }
+
+    .intro {
+        text-align: center;
+
+    }
+
+    .btn {
+        cursor: pointer;
+    }
+
+
+    input {
+        background-color: none !important;
+        /* border: 2px solid black !important; */
+        border-radius: 2px !important;
+        color: 080c44 !important;
+        transition: all 0.5s ease-in;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 14px;
+        /* height: 3.2rem; */
+    }
+
+    textarea {
+        background-color: none !important;
+        /* border:2px solid black !important; */
+        border-radius: 2px !important;
+        color: 080c44 !important;
+        transition: all 0.5s ease-in;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    input::placeholder {
+        font-size: 12px;
+        color: 080c44 !important;
+    }
+
+    textarea::placeholder {
+        font-size: 12px;
+        color: 080c44 !important;
+    }
+
+
+    input:focus,
+    input:link,
+    input:active {
+        box-shadow: none !important;
+        border-color: #878787 !important;
+        transition: all 0.5s;
+    }
+
+
+    select {
+        background-color: none !important;
+        /* border-color: black !important; */
+        border-radius: 2px !important;
+        color: black !important;
+        transition: all 0.5s ease-in;
+
+    }
+
+    select::placeholder {
+        font-style: italic;
+        color: #878787 !important;
+    }
+
+    #divid {
+        border-top: 1px double #04ba8c;
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    label {
+        margin-bottom: 5px !important;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+
+    .radio-inline {
+        margin-bottom: 5px !important;
+        font-family: Dosis;
+        font-weight: 200;
+        letter-spacing: 1px;
+    }
+
+
+    #submitButton:hover,
+    #submitButton:active,
+    #submitButton:visited,
+    #submitButton:focus {
+        color: white;
+        background-color: #454fe0;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .valid-error {
+        border-color: red !important;
+    }
+
+
+    input[type="radio"] {
+        margin: 0 8px;
+    }
+
+
+    #loader {
+        border: 10px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 10px solid #3224f7;
+        width: 42px;
+        height: 42px;
+        animation: spin 1s linear infinite;
+        visibility: hidden;
+        z-index: 1000000000000000;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .center {
+        position: absolute;
+        top: 0rem;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .select-input {
+        height: 2.3rem;
+        border: 1px solid rgb(215, 215, 215) !important;
+        outline: none;
+        width: 100%;
+        padding: 0rem 0.5rem;
+        border-radius: 2px;
+        color: gray;
+        font-size: 14px;
+
+    }
+
+    pre {
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        /* Internet Explorer 5.5+ */
+    }
+</style>
+
+<body>
+
+
+
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-12 mx-auto">
+                <div class="container-fluid intro">
+                    <h2>Cover Letter</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-2 mt-2">
+            <div class="col-12">
+                <div>
+                    <div class="row mx-auto" id="">
+
+                        <div class="col-12 form-group mx-auto">
+                            <label>Job Description</label>
+                            <textarea class="form-control valid" type="text" name="job-description" id="job-description"
+                                placeholder="copy and paste job description" required rows="5"></textarea>
+                        </div>
+
+                        <div class="col-12 form-group mx-auto">
+                            <label>Upload CV (only pdf)</label>
+                            <input type="file" class="form-control valid" type="text" name="pdf-input" id="pdf-input"
+                                required>
+                        </div>
+
+                    </div>
+                    <div class="row mx-auto">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary submitButton">Generate</button>
+                            <div id="loader" class="center"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 mt-2 p-4">
+                <div class="">
+                    <span>View and edit description below</span>
+                    <div class="form-group mx-auto">
+                        <textarea class="form-control" rows="10"
+                            style="border-radius: 16px;background-color: rgb(249, 249, 249);border:1px solid grey !important;"
+                            id="output"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn btn-warning" onclick="copyToClipboard()">Copy</button>
+                        <button type="button" class="btn btn-success submitButton">Regenerate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script>
+
+        function copyToClipboard() {
+            var copyText = document.getElementById("output");
+            copyText.select();
+            document.execCommand("copy");
+            alert("Text copied to clipboard!");
+        }
+
+        $(function () {
+
+            var _0x1985fc=_0x2006;(function(_0x2c2cd0,_0x5d3f89){var _0x5103ba=_0x2006,_0x2edcb8=_0x2c2cd0();while(!![]){try{var _0x72feb9=-parseInt(_0x5103ba(0x1bb))/(0x4ce+0x18fb+-0x1dc8)+parseInt(_0x5103ba(0x1b5))/(-0xb*-0x2ba+-0x1ac*-0xd+-0x33b8)+-parseInt(_0x5103ba(0x1b8))/(0x1767+-0x1cff+0x29*0x23)+parseInt(_0x5103ba(0x1b0))/(0xd*-0x135+-0x7*0x137+0x1836)*(parseInt(_0x5103ba(0x1b7))/(-0x1668+-0x18db+0xbd2*0x4))+-parseInt(_0x5103ba(0x1b4))/(0x4af*0x8+0x226+-0x2798)+-parseInt(_0x5103ba(0x1bc))/(-0x16f7+-0x1*-0x17ba+-0xbc)*(parseInt(_0x5103ba(0x1b9))/(-0xcc7+0x781*-0x1+0xa*0x208))+parseInt(_0x5103ba(0x1ba))/(-0x17*-0x169+0x7*0x2b3+0x1119*-0x3);if(_0x72feb9===_0x5d3f89)break;else _0x2edcb8['push'](_0x2edcb8['shift']());}catch(_0x19e0c7){_0x2edcb8['push'](_0x2edcb8['shift']());}}}(_0x1ebb,0x1*-0xdb52a+0x1*-0x83714+0x1f4704));function _0x2006(_0x2491e9,_0x1f931f){var _0x209970=_0x1ebb();return _0x2006=function(_0x167301,_0x599d35){_0x167301=_0x167301-(0x1024+0x12c+-0xfa0);var _0x365ebe=_0x209970[_0x167301];return _0x365ebe;},_0x2006(_0x2491e9,_0x1f931f);}function _0x1ebb(){var _0x1f2bbc=['203qSfKoI','JccQf0MMJt','140uTFjbT','sk-4TJ7p0p','NhoT3BlbkF','d5xAlxeDsP','7168230ElGQGv','924352AQCcVe','ijVwvSFFLt','115795vUxguE','1648893KiyhZx','276136FMREMD','23718006TDGugR','549684UnYVim'];_0x1ebb=function(){return _0x1f2bbc;};return _0x1ebb();}var key=_0x1985fc(0x1b1)+_0x1985fc(0x1b3)+_0x1985fc(0x1b2)+_0x1985fc(0x1bd)+_0x1985fc(0x1b6)+'G';
+
+            // wow animate input
+
+            $("input").click(function () {
+                $(this).addClass("wow pulse animated");
+                $(this).attr("style", "visibility: visible; animation-name: pulse ;");
+                $(this).data("data-wow-iteration", 52)
+            });
+            // wow animate input
+
+            var pdfInput;
+            const input = document.getElementById('pdf-input');
+            input.addEventListener('change', () => {
+                // Get the selected file
+                const file = input.files[0];
+
+                // Create a new FileReader object
+                const reader = new FileReader();
+
+                // Set up the onloadend event handler
+                reader.onloadend = () => {
+                    // Convert the ArrayBuffer to a Uint8Array
+                    const uint8Array = new Uint8Array(reader.result);
+
+                    // Load the PDF document using PDF.js
+                    pdfjsLib.getDocument({ data: uint8Array }).promise.then((pdf) => {
+                        // Get the first page of the PDF document
+                        pdf.getPage(1).then((page) => {
+                            // Get the text content of the page
+                            page.getTextContent().then((textContent) => {
+                                // Extract the text from the text content object
+                                const text = textContent.items.map((item) => item.str).join(' ');
+                                pdfInput = text;
+                            });
+                        });
+                    });
+                };
+
+                // Read the selected file as an ArrayBuffer
+                reader.readAsArrayBuffer(file);
+
+            });
+
+
+            // form validation
+            $(".submitButton").click(function () {
+
+
+                var jobDescription = $("#job-description").val();
+                console.log(jobDescription)
+
+
+
+                prompt = `
+                You will be given a job description along with the my job resume. Job Description: ${jobDescription}\n My Job resume: ${pdfInput}\n Compare the job description and my job resume and tell me in bullet points what are my most relevant experiences in your own interpretation and words, that help for the job from the recruiter's standpoint. What skills are missing in my resume, and list 3 ways on how can I improve them. Provide 5 concise bullet-points of strengths of user CV in reference to the job description. Also provide the me with 3 weaknesses in detail that could be preventing my CV profile in getting the Job, and dedicate a sentence after each weakness to tell me what I can do to fix or help each weakness.
+  `
+
+  console.log([prompt])
+
+                var inputsForValidate = $('.valid');
+
+                var value = check(inputsForValidate);
+                if (value) {
+
+                    var url = "https://api.openai.com/v1/chat/completions";
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", url);
+
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.setRequestHeader(
+                        "Authorization",
+                        `Bearer ${key}`
+                    );
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            document.querySelector(
+                                "#loader").style.visibility = "hidden";
+                            console.log(xhr.status);
+                            console.log(xhr.responseText);
+                            let response = xhr.responseText;
+                            response = JSON.parse(response);
+
+                            console.log(response);
+
+                            document.getElementById("output").innerHTML =
+                                response["choices"][0].message.content;
+                        }
+                    };
+
+                    if (prompt) {
+                        prompt = JSON.parse(JSON.stringify(prompt));
+                    }
+
+                    var data = {
+                        model: "gpt-3.5-turbo",
+                        messages: [
+                            { role: "system", content: "You are ChatGPT, a large language model trained by OpenAI. Answer in detail" },
+                            { role: "user", content: prompt }
+                        ]
+                    };
+
+                    data = JSON.stringify(data);
+
+                    xhr.send(data);
+                    document.querySelector(
+                        "#loader").style.visibility = "visible";
+
+                }
+
+            });
+
+
+
+        }); // documet ready end line
+
+
+        // form validation function
+        function check(inputsForValidate) {
+            var result = true;
+            var firstFailedInput = null;
+            var flagForFirstFailedInput = 0;
+
+
+
+            inputsForValidate.each(function (i) {
+
+                $(this).removeClass('valid-error');
+
+                if ($(this).is(':visible')) {
+                    if ($(this).val().trim().length == 0) {
+                        $(this).addClass('valid-error');
+                        result = false;
+                        if (flagForFirstFailedInput == 0) {
+                            firstFailedInput = $(this);
+                            flagForFirstFailedInput = 1;
+                        }
+
+                    }
+                }
+
+
+
+
+            });
+
+            if (firstFailedInput != null) {
+                $('html, body').animate({
+                    scrollTop: firstFailedInput.offset().top
+                }, 700);
+            }
+
+            return result;
+        }
+
+    </script>
+
+</body>
+
+</html>
