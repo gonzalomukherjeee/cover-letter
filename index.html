@@ -208,7 +208,7 @@
         <div class="row">
             <div class="col-12 mx-auto">
                 <div class="container-fluid intro">
-                    <h2>ResumUp CV Base Model</h2>
+                    <h2>CV Base Model by Gonzo</h2>
                 </div>
             </div>
         </div>
@@ -340,8 +340,8 @@
 
 
 
-                        prompt = `
-                You will be given a job description along with the my job resume. Job Description: ${jobDescription}\n My Job resume: ${pdfInput}\n Compare the job description and my job resume and tell me in bullet points what are my most relevant experiences in your own interpretation and words, that help for the job from the recruiter's standpoint. What skills are missing in my resume, and list 3 ways on how can I improve them. Provide 5 concise bullet-points of strengths of user CV in reference to the job description. Also provide the me with 3 weaknesses in detail that could be preventing my CV profile in getting the Job, and dedicate a sentence after each weakness to tell me what I can do to fix or help each weakness.
+                prompt = `
+                You will be given a job description along with the my job resume. Job Description: ${jobDescription}\n My Job resume: ${pdfInput}\n Compare the job description and my job resume and tell me in bullet points what are my most relevant experiences in your own interpretation and words, that help for the job from the recruiter's standpoint. What skills are missing in my resume, and list 3 ways on how can I improve them. Provide 5 concise dot bullet-points of strengths of user CV in reference to the job description. Also provide me with 3 weaknesses in detail that could be preventing my CV profile in getting the Job, and dedicate a sentence after each weakness to tell me what I can do to fix or help each weakness.
   `
 
                         console.log([prompt])
