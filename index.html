@@ -65,7 +65,7 @@
         background-color: none !important;
         /* border:2px solid black !important; */
         border-radius: 2px !important;
-        color: 080c44 !important;
+        color: black !important;
         transition: all 0.5s ease-in;
         font-weight: 500;
         letter-spacing: 1px;
@@ -253,9 +253,11 @@
                         <div class="">
                             <span>Comment by Recruitment Team</span>
                             <div class="form-group mx-auto">
-                                <textarea class="form-control" rows="10"
-                                    style="border-radius: 16px;background-color: rgb(249, 249, 249);border:1px solid grey !important;"
-                                    id="output" disabled></textarea>
+                                <pre>
+                                <p class="form-control"
+                                    style="border-radius: 8px;background-color: rgb(249, 249, 249);border:1px solid rgb(220, 220, 220) !important;min-height: 20rem;overflow: scroll;"
+                                    id="output"></p>
+                                </pre>
                             </div>
                             <div>
                                 <button class="btn btn-warning" onclick="copyToClipboard()">Copy</button>
@@ -278,10 +280,14 @@
             <script>
 
                 function copyToClipboard() {
-                    var copyText = document.getElementById("output");
-                    copyText.select();
-                    document.execCommand("copy");
-                    alert("Text copied to clipboard!");
+                    var text = document.getElementById("output").innerText;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem)
+    alert("Copy to clipboard")
                 }
 
                 $(function () {
