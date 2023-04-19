@@ -357,8 +357,13 @@
 
 
 
-                prompt = `
-Job Description: ${jobDescription}\n My Job resume: ${pdfInput}\n Provide a very rating that considers all possible criteria that compares the job description to my Resume. The rating must be well-thought and conservative. Do not comment on the rating, and let the rating be from 0% to 99%   '
+            prompt = `
+                    You will be given a job description along with my job resume. Job Description: ${jobDescription}\n My Job resume: ${pdfInput}\n Compare the job description and my job resume and tell me in bullet points what are my most relevant experiences in your interpretation and words with the title "Highlights in your CV for this position", that help for the job from the recruiter's standpoint. What skills are missing in the resume, and list 3 ways to improve them. Provide 5 concise dot bullet points of strengths of the user's CV in reference to the job description. Also, provide me with 3 weaknesses in detail that could prevent my CV profile from getting the Job, and dedicate a sentence after each weakness to tell me what I can do to fix or help each weakness. Suggest how to rewrite 3 phrases of the CV to be more applicable to what the recruiters want to see, and why the modification is suggested based on the needs of the job description. Do not repeat any statements or suggestions. Before anything else, provide a summary with a general outlook of how suitable the resume is for the job and be critical. Ultimately, state the resumes suitability for the job and use a conservative and critical percentage-based rating. Use the name in the CV of the person you refer to as 'you'. Follow this structure for the response: General Outlook, Strengths in your CV for this Position, Skills missing in the resume with a realistic solution under every individual skill, Weaknesses in the CV, and the conclusion.  `
+
+                
+                
+                
+                
                          console.log([prompt])
                        
 
